@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ltphuongduy-devops-capstone
+  labels:
+    app: ltphuongduy-devops-capstone
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ltphuongduy-devops-capstone
+  template:
+    metadata:
+      labels:
+        app: ltphuongduy-devops-capstone
+    spec:
+      containers:
+        - name: ltphuongduy-devops-capstone
+          image: docker.io/ltphuongduy/ltphuongduy-devops-capstone:latest
+          imagePullPolicy: Always
+          ports:
+            - name: app
+              containerPort: 80
